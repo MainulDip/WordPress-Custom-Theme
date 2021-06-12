@@ -2,9 +2,9 @@ const path = require('path')
 
 module.exports = {
   entry: {
-    tailwind: './src/js/tailwind.css.ts',
-    pageSpecific: './src/js/pagespecific.css.ts',
-    home: './src/js/customScript.ts'
+    tailwind: './src/scripts/tailwind.css.ts',
+    pageSpecific: './src/scripts/pagespecific.css.ts',
+    home: './src/scripts/customScript.ts'
   },
   // context: path.resolve(__dirname, 'assets'),
   output: {
