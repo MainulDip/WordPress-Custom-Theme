@@ -1,0 +1,1 @@
+!function(){"use strict";["hi","hello","bye"].map((function(o){console.log(o)}))}();
