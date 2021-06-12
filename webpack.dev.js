@@ -9,7 +9,7 @@ module.exports = merge(commonConfig, {
   mode: 'development',
   watch: true,
   plugins: [
-    new RemoveEmptyScriptsPlugin({ extensions: ['css.js'] }),
+    new RemoveEmptyScriptsPlugin({ extensions: ['css.ts'] }),
     new MiniCssExtractPlugin({
       filename: '/style/[name].bundle.css'
     }),
@@ -17,6 +17,11 @@ module.exports = merge(commonConfig, {
   ],
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      },
       {
         test: /\.s?css$/,
         use: [
@@ -32,5 +37,8 @@ module.exports = merge(commonConfig, {
         ]
       }
     ]
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js']
   }
 })

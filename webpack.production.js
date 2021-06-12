@@ -8,7 +8,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = merge(webpackCommonConfig, {
   mode: 'production',
   plugins: [
-    new RemoveEmptyScriptsPlugin({ extensions: ['css.js'] }),
+    new RemoveEmptyScriptsPlugin({ extensions: ['css.ts'] }),
     new MiniCssExtractPlugin({
       filename: '/style/[name].bundle.css'
     }),
@@ -16,6 +16,11 @@ module.exports = merge(webpackCommonConfig, {
   ],
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
@@ -42,5 +47,8 @@ module.exports = merge(webpackCommonConfig, {
       }
     ]
   },
-  target: ["web", "es5"]
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js']
+  },
+  target: ['web', 'es5']
 })
