@@ -3,7 +3,6 @@ module.exports = {
     process.env.NODE_ENV === 'production'
       ? [
           require('tailwindcss'),
-          require('postcss-nested'),
           require('autoprefixer'),
           require('cssnano')({
             preset: [
@@ -18,7 +17,6 @@ module.exports = {
         ]
       : [
           require('tailwindcss'),
-          require('postcss-nested'),
           require('autoprefixer')
         ]
 }
