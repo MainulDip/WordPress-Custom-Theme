@@ -1,14 +1,8 @@
 # Overview
 
-___
-
-This is a bare minimum plugin to create custom block variation and pattern in wordpress block editor.  
-Note: Block Variation Use Mostly Client Side Integration Where pattern use server side.  
-Choose as your preference :)
+This is a custom wordpress theme on top of the most popular underscores barebone theme. This uses typescript and tailwind css internally through custom webpack configuration. It utilizes the tree shaking feature of tailwind to keep the asset size minimum.
 
 ## Instructions
-
-___
 
 First Install The Packages
 
@@ -19,7 +13,7 @@ npm install
 Then Start The Node Server In Watch Mode By Running
 
 ```sh
-npm run start
+npm run wp-dev
 ```
 
 After finishing development run
@@ -29,21 +23,17 @@ npm run build
 
 ## Folder Structure
 
-___
+Edit the src/scripts/customScript.ts file to customize the javascript or interactivity.
+pagespecific.css.ts and tailwind.css.ts files inject the frontend styles.
 
-Edit the src/index.js file to customize the variation
-Edit the index.php file to put block pattern
+## Notes (webpack):
 
-## Notes (inline css injection):
+From development to build this theme depends on 3 webpack configuration files. webpack.common.js, webpack.dev.js and webpack.production.js. Add or remove themes entry point and output from webpack.common.js and modify other functionality through other two configuration files.
 
-___
+There are also postcss.config.js, tailwind.config.js and tsconfig.json respectively.
 
-As of writing this, maybe to work perfectly with headless architecture, wordpress gives no way (or not documented yet) to push custom inline styles through block variation api. You can use custom css classes to get fine grain control.
+## Notes (WooCommerce Support):
 
-## Notes (Hooking Block Variation Assets):
-
-___
-
-Shortet way is through init hook and register_block_type_from_metadata using block.json structure (see index.php for detail). And also alternatively you enqueue scripts and asstes on editor-only or both side.
+Woocommerce Support is out of the box.
 
 #### Happy Coding :) 
